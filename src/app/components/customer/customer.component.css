@@ -1,0 +1,11 @@
+.allcard {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+}
+.card {
+  text-align: center;
+  padding: 25px;
+  border-radius: 20px;
+  border: solid 4px coral;
+}

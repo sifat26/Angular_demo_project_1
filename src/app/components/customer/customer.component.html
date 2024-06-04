@@ -1,0 +1,13 @@
+<div class="allcard">
+  @for (customer of customers; track customer.Id) {
+  <div class="card">
+    <h4>First Name : {{ customer.FirstName }}</h4>
+    <p>LastName : {{ customer.LastName }}</p>
+    <p>Email : {{ customer.Email }}</p>
+    <p>PhoneNumber : {{ customer.PhoneNumber }}</p>
+    <p>City: {{ customer.City }}</p>
+    <p>Country: {{ customer.Country }}</p>
+  </div>
+
+  }
+</div>
