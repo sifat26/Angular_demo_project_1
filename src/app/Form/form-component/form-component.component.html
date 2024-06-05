@@ -1,0 +1,210 @@
+<div class="form">
+  <form class="fullform" (submit)="onSubmit($event)" [formGroup]="customerForm">
+    <h2>Form</h2>
+    <div class="form-group">
+      <label for="FirstName ">FirstName </label>
+      <input
+        formControlName="FirstName"
+        type="text"
+        id="FirstName"
+        name="FirstName"
+        required
+      />
+    </div>
+    <div
+      *ngIf="
+        customerForm.get('FirstName')?.touched &&
+        customerForm.get('FirstName')?.errors
+      "
+    >
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('FirstName')?.errors?.['required']"
+        >User Name Required</small
+      >
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('FirstName')?.errors?.['minlength']"
+        >User Name Required Minimum 3 characters
+      </small>
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('FirstName')?.errors?.['maxlength']"
+        >User Name Required Maximum 9 characters
+      </small>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="LastName ">LastName </label>
+      <input
+        formControlName="LastName"
+        type="text"
+        id="LastName"
+        name="LastName"
+        required
+      />
+    </div>
+    <div
+      *ngIf="
+        customerForm.get('LastName')?.touched &&
+        customerForm.get('LastName')?.errors
+      "
+    >
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('LastName')?.errors?.['required']"
+        >User Name Required</small
+      >
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('LastName')?.errors?.['minlength']"
+        >User Name Required Minimum 3 characters
+      </small>
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('LastName')?.errors?.['maxlength']"
+        >User Name Required Maximum 9 characters
+      </small>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        formControlName="Email"
+        type="email"
+        id="email"
+        name="email"
+        required
+      />
+    </div>
+    <div
+      *ngIf="
+        customerForm.get('Email')?.touched && customerForm.get('Email')?.errors
+      "
+    >
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('Email')?.errors?.['required']"
+        >Email Must Required</small
+      >
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('Email')?.errors?.['email']"
+        >Email Must be valid</small
+      >
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="number">Phone Number</label>
+      <input
+        formControlName="PhoneNumber"
+        type="Number"
+        id="number"
+        name="phoneNumber"
+        required
+      />
+    </div>
+    <div
+      *ngIf="
+        customerForm.get('PhoneNumber')?.touched &&
+        customerForm.get('PhoneNumber')?.errors
+      "
+    >
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('PhoneNumber')?.errors?.['required']"
+        >Phone Number Required</small
+      >
+      <small
+        style="color: red"
+        *ngIf="customerForm.get('PhoneNumber')?.errors?.['pattern']"
+        >Number must be a valid 11-digit number</small
+      >
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="City">City </label>
+      <input
+        formControlName="City"
+        type="text"
+        id="City"
+        name="City"
+        required
+      />
+    </div>
+    <div
+    *ngIf="
+      customerForm.get('City')?.touched &&
+      customerForm.get('City')?.errors
+    "
+  >
+    <small
+      style="color: red"
+      *ngIf="customerForm.get('City')?.errors?.['required']"
+      >City Must Required</small
+    >
+    
+  </div>
+    <br />
+    <div class="form-group">
+      <label for="Country">Country </label>
+      <input
+        formControlName="Country"
+        type="text"
+        id="Country"
+        name="Country"
+        required
+      />
+    </div>
+    <div
+    *ngIf="
+      customerForm.get('Country')?.touched &&
+      customerForm.get('Country')?.errors
+    "
+  >
+    <small
+      style="color: red"
+      *ngIf="customerForm.get('Country')?.errors?.['required']"
+      >Country Must Required</small
+    >
+    
+  </div>
+    <br />
+
+    <button (click)="formFill()" type="submit">Submit</button>
+  </form>
+</div>
+
+<h2 style="text-align: center; color: #4caf50; font-size: 30px">
+  Customer List
+</h2>
+
+<div class="customer-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Sl</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (customer of customers; track $index) {
+
+      <tr>
+        <td>{{ $index + 1 }}</td>
+        <td>{{ customer.FirstName }}</td>
+        <td>{{ customer.LastName }}</td>
+        <td>{{ customer.Email }}</td>
+        <td>{{ customer.PhoneNumber }}</td>
+        <td>{{ customer.City }}</td>
+        <td>{{ customer.Country }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

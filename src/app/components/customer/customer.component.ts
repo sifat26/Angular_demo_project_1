@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-customer',
@@ -28,7 +29,16 @@ export class CustomerComponent {
       City,
       Country,
     };
-    console.log(customersInfo);
     this.customers.push(customersInfo);
+    form.reset();
+    
   }
+  customerForm=new FormGroup({
+    FirstName:new FormControl(),
+    LastName:new FormControl(),
+    Email:new FormControl(),
+    PhoneNumber:new FormControl(),
+    City:new FormControl(),
+    Country:new FormControl(),
+  })
 }
